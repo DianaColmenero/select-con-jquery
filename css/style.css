@@ -1,0 +1,18 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+
+.head {
+    background-color: aqua;
+    text-align: center
+}
+
+.container {
+    margin-left: 23%;
+    margin-top: 3em;
+
+}
+
+.jumbo {
+  list-style: none;  
+}
