@@ -2,6 +2,8 @@ $(document).ready(function() {
   //eventos
   $('#state').change(paintSelect);
   $('#add').click(addCity);
+  $('#orderByName').click(orderByName);
+  $('#orderByLength').click(orderByLength);
 });
 
 var paintSelect = function() {
@@ -13,47 +15,78 @@ var paintSelect = function() {
 var loadStates = function(selectedState) {
 	cleanSelect();
 	  data[selectedState].forEach((state, i) => {
-		$('#city').append('<option value="">' + data[selectedState][i] + '</option>');
+		$('#city').append('<option value="">' + data[selectedState][i] + '</option>');//Creo elementos HTML desde el DOM
 	});
 }
 
 var cleanSelect = function() {
 	$('#city').empty();
-	$('#city').prepend('<option value="">' + '-' + '</option>');
+	$('#city').prepend('<option value=" ">' + '-' + '</option>');//Creo elementos HTML desde el DOM
 }
+
 
 var addCity = function(e) {
   e.preventDefault();
 
-  
-  var mensaje = $('#city').find(':selected').html();
-  console.log(mensaje);
-  var $contenedorLista = $('<ul class="jumbo"/>');//Creo elementos HTML desde el DOM
-  var $crearLi = $('<li class="lista" />');//Creo elementos HTML desde el DOM
-  var $list = $("#lista");
+  var mensaje = $('#city').find(':selected').text();
+  //console.log(mensaje);
+  cityContainer(mensaje);
+}
+var newArray = [];
+  var cityContainer = function(mensaje){
 
-  if (mensaje.value !== " ") {
-  
-  $crearLi.text(mensaje);
-  $contenedorLista.append($crearLi);
-  $list.append($contenedorLista);
+    var $contenedorLista = $('#lista');
+    var $crearLi = $('<li class="lista" />');//Creo elementos HTML desde el DOM
+    $crearLi.text(mensaje);
+    $contenedorLista.append($crearLi);
+    //console.log(mensaje);
+    newArray.push(mensaje);
+    
+    limitList(newArray);
   }
+
+
+  var limitList = function(newArray){
+    console.log(newArray);
+    
+   
+  }
+
+var orderByName = function(newArray) {
+newArray.sort();
+console.log(newArray);
+
+}
+
+
+
+var orderByLength = function(arr, asc) {
+  var byLength =newArray.sort(function(a,b){
+    if (asc) return b.length - a.length;
+    else return a.length - b.length
+  });
+  console.log(byLength);
   
 }
 
-console.log(data.length);
 
-var newArray = [];
-newArray[0] = 'elemento1';
-newArray[1] = 'elemento2';
-newArray[2] = 'elemento3';
-newArray[3] = 'elemento4';
+//$('#lista li').each(function(i, v){
+ // console.log($(v).text());
+  
+//});
 
-console.log(newArray.length);
+//console.log(data.length);
 
-newArray.push('otro elemento mas')
+var items = $('#lista li');
 
-console.log(newArray);
+  for(var i = 0; i < items.length; i++){
+    newArray.push(items[i].html);
+  }
+
+//console.log(newArray.length);
+
+
+//console.log(newArray);
 //or (mismo resultado)
 //console.log(data['Jalisco']);
 
