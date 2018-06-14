@@ -38,26 +38,55 @@ var newArray = [];
     var $contenedorLista = $('#lista');
     var $crearLi = $('<li class="lista" />');//Creo elementos HTML desde el DOM
     $crearLi.text(mensaje);
-    $contenedorLista.append($crearLi);
+    // $contenedorLista.append($crearLi);
     //console.log(mensaje);
     newArray.push(mensaje);
+    // newArray = limitList(newArray);
+    console.log(newArray);
+    
     
     limitList(newArray);
+    myFunction(newArray);
   }
+
 
 
   var limitList = function(newArray){
     console.log(newArray);
-    
+    if(newArray > 3){
+      return newArray.shift();
+      
+    }
+
    
   }
 
-var orderByName = function(newArray) {
-newArray.sort();
-console.log(newArray);
+  var myFunction = function(newArray){
+
+    var $contenedorLista = $('#lista');
+    $contenedorLista.empty();
+    for (var i = 0; i < newArray.length; i++){
+      var $crearLi = $('<p class="lista" />');//Creo elementos HTML desde el DOM
+      $contenedorLista.append($crearLi);
+      $crearLi.text(newArray[i]);
+  
+    }
+  
+  }
+
+
+var orderByName = function() {
+newArray = newArray.sort();
+
+myFunction(newArray);
+//console.log(newArray);
+// var $contenedorLista = $('#lista');
+// $contenedorLista.empty();
+    // var $crearLi = $('<p class="lista" />');//Creo elementos HTML desde el DOM
+    // $crearLi.append(newArray);
+    // $contenedorLista.append($crearLi);
 
 }
-
 
 
 var orderByLength = function(arr, asc) {
@@ -65,7 +94,7 @@ var orderByLength = function(arr, asc) {
     if (asc) return b.length - a.length;
     else return a.length - b.length
   });
-  console.log(byLength);
+  myFunction(newArray);
   
 }
 
@@ -77,11 +106,11 @@ var orderByLength = function(arr, asc) {
 
 //console.log(data.length);
 
-var items = $('#lista li');
+// var items = $('#lista li');
 
-  for(var i = 0; i < items.length; i++){
-    newArray.push(items[i].html);
-  }
+//   for(var i = 0; i < items.length; i++){
+//     newArray.push(items[i].html);
+//   }
 
 //console.log(newArray.length);
 
@@ -91,9 +120,9 @@ var items = $('#lista li');
 //console.log(data['Jalisco']);
 
 //log de object con map
-var otherData = (data['Aguascalientes']).map(function(city) {
-  return [city]; //devuelve todos los municipios
-});
+// var otherData = (data['Aguascalientes']).map(function(city) {
+//   return [city]; //devuelve todos los municipios
+// });
 //console.log(otherData);
 
 
@@ -102,29 +131,28 @@ var otherData = (data['Aguascalientes']).map(function(city) {
 
 
 //log de object con push
-var otherData = (data['Jalisco']).push(function(city) {
-  return [(city)];
-});
+// var otherData = (data['Jalisco']).push(function(city) {
+//   return [(city)];
+// });
 //console.log(otherData);  me devve el numero 9
 //or
-var otherData = (data['Jalisco']).push(newArray);
+// var otherData = (data['Jalisco']).push(newArray);
 //console.log(otherData); me devve el numero 10
 
-var ejemplo = 'este es un ejemplo de string';
+// var ejemplo = 'este es un ejemplo de string';
 //console.log(ejemplo.length);
 //console.log(ejemplo.toUpperCase());
 
-
-
-
-var resultArr = Object.keys(data).map(function(key) {
-  return [data[key]];
-});
+// var resultArr = Object.keys(data).map(function(key) {
+//   return [data[key]];
+// });
 
 //console.log(resultArr);
 
 //var prub = data.sort();
 //console.log(prub);
 
+
+// var otroArr = ['Diana', 29, 'Java Script']
 
 
