@@ -28,38 +28,45 @@ var cleanSelect = function() {
 var addCity = function(e) {
   e.preventDefault();
 
-  var mensaje = $('#city').find(':selected').text();
-  //console.log(mensaje);
+  var mensaje = $('#city')
+		.find(':selected')
+		.text();
+	console.log;
+	if (newArray.length === 3) {
+		newArray.shift();
+		console.log('TEST');
+	}
+
   cityContainer(mensaje);
 }
-var newArray = [];
-  var cityContainer = function(mensaje){
+  var newArray = [];
 
-    var $contenedorLista = $('#lista');
-    var $crearLi = $('<li class="lista" />');//Creo elementos HTML desde el DOM
+  var cityContainer = function(mensaje){
+    var $crearLi = $('<li class="lista" />');
     $crearLi.text(mensaje);
-    // $contenedorLista.append($crearLi);
-    //console.log(mensaje);
-    newArray.push(mensaje);
-    // newArray = limitList(newArray);
-    console.log(newArray);
-    
-    
-    limitList(newArray);
-    myFunction(newArray);
+	// if (newArray === 3) {
+	// 	newArray.shift();
+	// }
+	newArray.push(mensaje);
+
+	console.log(newArray);
+
+	// limitList(newArray);
+	myFunction(newArray);
+  
   }
 
 
 
-  var limitList = function(newArray){
-    console.log(newArray);
-    if(newArray > 3){
-      return newArray.shift();
+  // var limitList = function(newArray){
+  //   console.log(newArray);
+  //   if(newArray > 3){
+  //     return newArray.shift();
       
-    }
+  //   }
 
    
-  }
+  // }
 
   var myFunction = function(newArray){
 
@@ -77,20 +84,13 @@ var newArray = [];
 
 var orderByName = function() {
 newArray = newArray.sort();
-
 myFunction(newArray);
-//console.log(newArray);
-// var $contenedorLista = $('#lista');
-// $contenedorLista.empty();
-    // var $crearLi = $('<p class="lista" />');//Creo elementos HTML desde el DOM
-    // $crearLi.append(newArray);
-    // $contenedorLista.append($crearLi);
 
 }
 
 
 var orderByLength = function(arr, asc) {
-  var byLength =newArray.sort(function(a,b){
+  var byLength = newArray.sort(function(a,b){
     if (asc) return b.length - a.length;
     else return a.length - b.length
   });
