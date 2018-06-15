@@ -31,45 +31,26 @@ var addCity = function(e) {
   var mensaje = $('#city')
 		.find(':selected')
 		.text();
-	console.log;
-	if (newArray.length === 3) {
+	if (newArray.length > 4) {
 		newArray.shift();
-		console.log('TEST');
+		// console.log('TEST');
 	}
 
-  cityContainer(mensaje);
+	cityContainer(mensaje);
+	// getDuplicatedValues(newArray);
 }
   var newArray = [];
 
   var cityContainer = function(mensaje){
-    var $crearLi = $('<li class="lista" />');
-    $crearLi.text(mensaje);
-	// if (newArray === 3) {
-	// 	newArray.shift();
-	// }
-	newArray.push(mensaje);
+		//inserto elementos seleccionados en el array vacio
+		newArray.push(mensaje);
 
-	console.log(newArray);
-
-	// limitList(newArray);
-	myFunction(newArray);
+		myFunction(newArray);
   
   }
 
-
-
-  // var limitList = function(newArray){
-  //   console.log(newArray);
-  //   if(newArray > 3){
-  //     return newArray.shift();
-      
-  //   }
-
-   
-  // }
-
   var myFunction = function(newArray){
-
+		
     var $contenedorLista = $('#lista');
     $contenedorLista.empty();
     for (var i = 0; i < newArray.length; i++){
@@ -81,6 +62,17 @@ var addCity = function(e) {
   
   }
 
+	// Array.prototype.getDuplicatedValues = function(newArray) {
+	// 	console.log('prub');
+		
+	// 	var counter = 0;
+	// 	for (var i = 0; i < newArray.length; i++) {
+			
+	// 	}
+	// 	return counter;
+	// 	console.log(counter);
+		
+	// }
 
 var orderByName = function() {
 newArray = newArray.sort();
@@ -97,6 +89,8 @@ var orderByLength = function(arr, asc) {
   myFunction(newArray);
   
 }
+
+
 
 
 //$('#lista li').each(function(i, v){
