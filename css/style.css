@@ -15,4 +15,12 @@ body {
 
 #lista {
   list-style: none;  
+  width: 50%;
+  height: 59vh;
+}
+
+#elementsDuplicates,
+#buttons
+{
+    display: inline-block;
 }
